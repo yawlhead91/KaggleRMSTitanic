@@ -33,7 +33,6 @@ def preProccess(df, tdf):
     df['Embarked'] = df['Embarked'].map(emb_mapping)
     tdf['Embarked'] = df['Embarked'].map(emb_mapping)
     
-    
     return df, tdf
 
 
@@ -45,7 +44,18 @@ def main():
     
     df, tdf = preProccess(df, tdf)
     
-    print(df)
+    dft = df['Survived']
+    df = df.drop(['Survived'], 1)
+    
+    dfid = df['PassengerId']
+    df = df.drop(['PassengerId'], 1)
+    
+    tdfid = tdf['PassengerId']
+    tdf = tdf.drop(['PassengerId'], 1)
+    
+    
+    
+    print(dft)
     
     return
 
